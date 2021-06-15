@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace FedoraDev.StateMachine
 {
     public interface IStateMachine
@@ -7,5 +9,6 @@ namespace FedoraDev.StateMachine
         void Tick();
         void GoToState(IState state);
         void ForceState(IState state);
+        T GetResource<T>();
     }
 }
