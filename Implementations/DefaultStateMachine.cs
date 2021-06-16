@@ -31,7 +31,5 @@ namespace FedoraDev.StateMachine.Implementations
 			CurrentState = state;
 			CurrentState.StateMachine = this;
 		}
-
-		public T GetResource<T>() => default;
 	}
 }
