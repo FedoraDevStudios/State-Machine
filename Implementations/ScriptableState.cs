@@ -7,7 +7,7 @@ namespace FedoraDev.StateMachine.Implementations
     public class ScriptableState : SerializedScriptableObject, IState
     {
 		public string Name => _state.Name;
-		public IStateMachine StateMachine { get; set; }
+		public IStateMachine StateMachine { get; private set; }
 
         [SerializeField, HideLabel, BoxGroup("State")] IState _state;
 
@@ -15,5 +15,11 @@ namespace FedoraDev.StateMachine.Implementations
 		public void Enter(IState previousState) => _state.Enter(previousState);
 		public void Tick() => _state.Tick();
 		public void Exit(IState nextState) => _state.Exit(nextState);
+
+		public void SetStateMachine(IStateMachine stateMachine)
+		{
+			StateMachine = stateMachine;
+			_state.SetStateMachine(stateMachine);
+		}
 	}
 }

@@ -12,18 +12,18 @@ namespace FedoraDev.StateMachine.Implementations
 		public void ForceState(IState state)
 		{
 			_stateMachine.ForceState(state);
-			_stateMachine.CurrentState.StateMachine = this;
+			_stateMachine.CurrentState.SetStateMachine(this);
 		}
 
 		public void GoToState(IState state)
 		{
 			_stateMachine.GoToState(state);
-			_stateMachine.CurrentState.StateMachine = this;
+			_stateMachine.CurrentState.SetStateMachine(this);
 		}
 
 		private void Awake()
 		{
-			_stateMachine.CurrentState.StateMachine = this;
+			_stateMachine.CurrentState.SetStateMachine(this);
 			_stateMachine.CurrentState.Enter(_stateMachine.CurrentState);
 		}
 

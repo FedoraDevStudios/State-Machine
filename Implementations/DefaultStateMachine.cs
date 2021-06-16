@@ -29,7 +29,7 @@ namespace FedoraDev.StateMachine.Implementations
 			CurrentState.Exit(state);
 			state.Enter(CurrentState);
 			CurrentState = state;
-			CurrentState.StateMachine = this;
+			CurrentState.SetStateMachine(this);
 		}
 	}
 }
