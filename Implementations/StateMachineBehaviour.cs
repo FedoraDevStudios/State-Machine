@@ -21,9 +21,14 @@ namespace FedoraDev.StateMachine.Implementations
 			_stateMachine.CurrentState.StateMachine = this;
 		}
 
+		private void Awake()
+		{
+			_stateMachine.CurrentState.StateMachine = this;
+			_stateMachine.CurrentState.Enter(_stateMachine.CurrentState);
+		}
+
 		public void Tick() => _stateMachine.Tick();
 
-		private void Awake() => _stateMachine.CurrentState.Enter(_stateMachine.CurrentState);
 		void Update() => Tick();
 	}
 }
