@@ -27,6 +27,11 @@ namespace FedoraDev.StateMachine.Implementations
 			_stateMachine.CurrentState.Enter(_stateMachine.CurrentState);
 		}
 
+		private void OnDisable()
+		{
+			_stateMachine.CurrentState.Exit(new ApplicationClosedState());
+		}
+
 		public void Tick() => _stateMachine.Tick();
 
 		void Update() => Tick();
